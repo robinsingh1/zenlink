@@ -1,0 +1,66 @@
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+</head>
+
+<body>
+<script>
+
+  function submit() {
+    $.ajax({
+      url:"http://localhost:5000/v1/accounts",
+      success: function(res) {
+        console.log(res)
+      },
+      error: function(res) {
+        console.log(res)
+      }
+    })
+  }
+  $(document).ready(function() {
+    $(".auth-form").on("submit", function(e) {
+      console.log("submit yo")
+      e.preventDefault()
+    })
+  })
+</script>
+
+<center>
+  <div class="col-md-offset-4 col-md-4" >
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <div class="panel">
+    <div class="panel-default well">
+  <br/>
+  <h1 style="font-weight:800;font-size:30px"> {{ crm_name }} </h1>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+    <form class="auth-form">
+    <input class="form-control input-lg" placeholder="username"/>
+    <br/>
+    <input class="form-control input-lg" placeholder="password" type="password"/>
+    <br/>
+    <br/>
+    <button href="javascript:" type="submit" class="btn btn-lg btn-success signup-btn" > SIGN UP</button>
+    </form>
+  </div>
+</div>
+  </div>
+</center>
+</body>
+<style>
+  .signup-btn{
+    display: block;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width:100%
+  }
+</style>
